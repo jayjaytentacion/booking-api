@@ -1,3 +1,4 @@
+
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .import models
@@ -11,7 +12,7 @@ class CustomUserAdmin(UserAdmin):
     model = models.CustomUser
 
     ordering = ["email"]
-    list_display = ["email", "is_staff", "is_active","is_superuser"]
+    list_display = ["email", 'full_name','phone_number',"is_staff", "is_active","is_superuser"]
     search_fields = ["email"]
     
     fieldsets = (
@@ -32,3 +33,4 @@ class CustomUserAdmin(UserAdmin):
         'fields': ('email', 'password1', 'password2'),
     }),
 )
+admin.site.register(models.Bookee)
